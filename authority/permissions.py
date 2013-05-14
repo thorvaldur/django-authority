@@ -370,6 +370,7 @@ class BasePermission(object):
                     try:
                         perm = Permission.objects.get(
                             user=self.user,
+                            group=self.group,
                             codename=codename,
                             approved=True,
                             content_type=content_type,
@@ -378,6 +379,7 @@ class BasePermission(object):
                     except Permission.DoesNotExist:
                         perm = Permission.objects.create(
                             user=self.user,
+                            group=self.group,
                             content_object=content_object,
                             codename=codename,
                             approved=True,
