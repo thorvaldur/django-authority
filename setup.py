@@ -31,7 +31,7 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Framework :: Django',
     ],
-    install_requires=['django'],
+    install_requires=['Django'],
     package_data = {
         'authority': [
             'fixtures/test.json',
