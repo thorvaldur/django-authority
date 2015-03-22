@@ -12,6 +12,8 @@ class BasePermissionForm(forms.ModelForm):
 
     class Meta:
         model = Permission
+        fields = ('codename', 'content_type', 'object_id', 'user', 'group',
+                  'creator', 'approved', 'date_requested', 'date_approved')
 
     def __init__(self, perm=None, obj=None, approved=False, *args, **kwargs):
         self.perm = perm
