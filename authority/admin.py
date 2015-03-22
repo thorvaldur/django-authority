@@ -141,12 +141,14 @@ class PermissionAdmin(admin.ModelAdmin):
                     break
         return super(PermissionAdmin, self).formfield_for_dbfield(db_field, **kwargs)
 
-    def queryset(self, request):
+    def get_queryset(self, request):
         user = request.user
         if (user.is_superuser or
                 user.has_perm('permissions.change_foreign_permissions')):
             return super(PermissionAdmin, self).queryset(request)
         return super(PermissionAdmin, self).queryset(request).filter(creator=user)
+
+    queryset = get_queryset
 
     def approve_permissions(self, request, queryset):
         for permission in queryset:
