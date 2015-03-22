@@ -7,7 +7,7 @@ def read(fname):
 
 setup(
     name='django-authority',
-    version='0.5-datamarket8',
+    version='0.5-datamarket9',
     description=(
         "A Django app that provides generic per-object-permissions "
         "for Django's auth app."
